@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var res: TextView
+    private lateinit var displayRes: TextView
     private lateinit var mainOperation: String
     private var num1: Double = 0.0
     private var num2: Double = 0.0
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clearDisplay(view: View) {
-        res.text = ""
+        displayRes.text = ""
         num1 = 0.0
         num2 = 0.0
         lastRes = 0.0
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun addNumToTxt(btn: Button) {
-        val oldTxt = res.text.toString()
+        val oldTxt = displayRes.text.toString()
         if(!isNumericToX(oldTxt)) {
             val oldTxt = ""
         }
@@ -37,13 +37,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun saveOperator(btn: Button) {
-        val num1 = res.text.toString().toDouble()
+        val num1 = displayRes.text.toString().toDouble()
         val mainOperation = btn.text.toString()
-        res.text = mainOperation
+        displayRes.text = mainOperation
     }
 
     fun doneCalc(btn: Button) {
-        val num2 = res.text.toString().toDouble()
+        val num2 = displayRes.text.toString().toDouble()
 
         if(mainOperation == "+") {
             lastRes = num1 + num2;
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
             lastRes = num1 / num2;
         }
 
-        res.text = lastRes.toString()
+        displayRes.text = lastRes.toString()
     }
 
     fun isNumericToX(toCheck: String): Boolean {
