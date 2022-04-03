@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val newTxt = btn.text.toString()
-        res.text = oldTxt + newTxt
+        displayRes.text = oldTxt + newTxt
     }
 
     fun saveOperator(btn: Button) {
